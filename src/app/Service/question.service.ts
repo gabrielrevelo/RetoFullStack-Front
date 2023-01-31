@@ -18,6 +18,11 @@ export class QuestionService {
 
   constructor(private http: HttpClient) {}
 
+  getAll(): Observable<QuestionI[]> {
+    let direction = this.url + 'getAll';
+    return this.http.get<QuestionI[]>(direction);
+  }
+
   getPage(page: number): Observable<QuestionI[]> {
     let direction = this.url + 'pagination/' + page;
     return this.http.get<QuestionI[]>(direction);
