@@ -1,61 +1,66 @@
 <p-toast></p-toast>
 <app-navbar></app-navbar>
-<div style="text-align: right;">   
-    
+<div style="text-align: right;">
+
 </div>
-<div class="container">    
+<div class="container">
     <div class="card text-center">
         <div class="card-header">
-           <B>LOGIN</B> <i class="pi pi-user" style="font-size: 1rem;margin-left: 10px;"></i>          
-            <p-progressSpinner *ngIf="mostrar" [style]="{width: '20', height: '20px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>            
+           <B>LOGIN</B> <i class="pi pi-user" style="font-size: 1rem;margin-left: 10px;"></i>
+            <p-progressSpinner *ngIf="mostrar" [style]="{width: '20', height: '20px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
         </div>
-         
+
         <div class="card-body" style="margin: 20px;">
             <form [formGroup]="form">
                 <span class="p-float-label" style="margin: 20px;">
-                    <input 
-                        id="float-input" 
-                        type="text" 
+                    <input
+                        id="float-input"
+                        type="text"
                         formControlName="email"
-                        pInputText> 
+                        pInputText>
                     <label for="float-input">Correo</label>
-                </span>                       
+                </span>
 
-                
+
                 <span class="p-float-label" style="margin: 20px;margin-top: 30px;">
-                    
-                    <input 
-                        id="float-input" 
-                        type="password" 
+
+                    <input
+                        id="float-input"
+                        type="password"
                         formControlName="password"
-                        pInputText > 
+                        pInputText >
                     <label for="float-input">Contraseña</label>
                 </span>
-    
-                           
-                <button [disabled]="form.invalid" (click)="ingresar()" pButton pRipple type="button" label="Iniciar" class="p-button-outlined p-button-secondary" style="margin-bottom: 10px;"></button>                        
-                
+
+
+                <button [disabled]="form.invalid" (click)="ingresar()" pButton pRipple type="button" label="Iniciar" class="p-button-outlined p-button-secondary" style="margin-bottom: 10px;"></button>
+
                 <br>
-                      
-                 
-                <br>              
-                <p>Aun no tienes cuenta? <a href="/registro" >Registrate</a></p>   
-               
-               
-     
-            </form>           
-           
+
+                <button (click)="ingresarGoogle()">Google</button>
+
+                <br>
+
+
+                <br>
+                <p>Aun no tienes cuenta? <a href="/registro" >Registrate</a></p>
+                <a href="javascript:void(0);" (click)="showModalDialog()">Recuperar Contraseña</a>
+
+
+
+            </form>
+
         </div>
-        
+
         <div>
-            
-        </div>        
-    </div>    
-    
+
+        </div>
+    </div>
+
 
 </div>
-<div class="container2">    
-    <button type="button" (click)="preguntasHome()" pButton pRipple label="Preguntas" class="p-button-danger mb-2"><i class="pi pi-user-edit" style="margin-top: 5px;"></i></button>     
+<div class="container2">
+    <button type="button" (click)="preguntasHome()" pButton pRipple label="Preguntas" class="p-button-danger mb-2"><i class="pi pi-user-edit" style="margin-top: 5px;"></i></button>
 </div>
 
 
@@ -68,7 +73,7 @@
         <div class="col-12 md:col-4">
             <div class="p-inputgroup">
                 <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
-                <input formControlName="email"  type="text" pInputText placeholder="Ejemplo01@gmail.com">         
+                <input formControlName="email"  type="text" pInputText placeholder="Ejemplo01@gmail.com">
             </div>
         </div>
         <div class="centrar">
@@ -76,6 +81,7 @@
 
         </div>
     </form>
-       
-   
-</p-dialog> 
+
+
+
+</p-dialog>
