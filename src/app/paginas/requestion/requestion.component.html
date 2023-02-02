@@ -37,29 +37,16 @@
           </div>
           <div class="">
             <cdk-virtual-scroll-viewport itemSize="150" class="viewport">
-              <div class="accordion" id="accordionExample" *cdkVirtualFor="let questions of answers | async">
-                <div class="card-body">{{ questions.answer }}</div>
-                <div class="card-body">{{ questions.id }}</div>
-                <p-rating [cancel]="false" [(ngModel)]="questions.position" [disabled]="true"></p-rating>
-                <hr>
-                <!-- <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      <h5 class="text-center">Respuesta: </h5>
-                      <p-rating [cancel]="false" [(ngModel)]="questions.position" [disabled]="true"></p-rating>
-
-
-
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <p>{{ questions.answer }}</p>
-                    <div class="accordion-body">
-                      <strong></strong>
-
-                    </div>
+              <div style="margin: 16px;"></div>
+              <div *cdkVirtualFor="let answer of answers | async">
+                <div class="card-body">
+                  {{ answer.answer }}
+                  <div class="footer-answer">
+                    <p-rating [cancel]="false" [(ngModel)]="answer.position" [disabled]="true"></p-rating>
+                    <app-edit-answer [answer]="answer" [questionId]="question?.id"></app-edit-answer>
                   </div>
-                </div> -->
+                </div>
+                <hr>
               </div>
             </cdk-virtual-scroll-viewport>
           </div>
