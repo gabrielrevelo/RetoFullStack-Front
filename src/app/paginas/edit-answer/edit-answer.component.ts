@@ -14,21 +14,12 @@ import { QuestionService } from 'src/app/Service/question.service';
 export class EditAnswerComponent implements OnInit {
 
   @Input() answer: AnswerI={
-    userId:'',
-    questionId:'',
-    answer:'',
-    position:0
-  };
-
-  @Input() questionId: any;
-
-  answerToEdit = {
     id: '',
     userId:'',
     questionId:'',
     answer:'',
     position:0
-  }
+  };
 
   constructor(
     private modalService: NgbModal,
@@ -45,16 +36,8 @@ export class EditAnswerComponent implements OnInit {
   }
 
   saveAnswer(): void {
-    console.log('answer', this.answer)
-    console.log('questionId', this.questionId)
-    this.answerToEdit.id = this.answer.questionId;
-    this.answerToEdit.userId = this.answer.userId;
-    this.answerToEdit.questionId = this.questionId;
-    this.answerToEdit.answer = this.answer.answer;
-    this.answerToEdit.position = this.answer.position;
-    console.log('answerToEdit', this.answerToEdit)
 
-    this.services.editAnswer(this.answerToEdit).subscribe({
+    this.services.editAnswer(this.answer).subscribe({
       next: (v) => {
         console.log(v)
         if(v){

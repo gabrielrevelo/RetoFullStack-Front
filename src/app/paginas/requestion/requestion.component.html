@@ -43,7 +43,7 @@
                   {{ answer.answer }}
                   <div class="footer-answer">
                     <p-rating [cancel]="false" [(ngModel)]="answer.position" [disabled]="true"></p-rating>
-                    <app-edit-answer [answer]="answer" [questionId]="question?.id"></app-edit-answer>
+                    <app-edit-answer [answer]="answer"></app-edit-answer>
                   </div>
                 </div>
                 <hr>
