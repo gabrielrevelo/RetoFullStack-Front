@@ -37,10 +37,11 @@
           </div>
           <div class="">
             <cdk-virtual-scroll-viewport itemSize="150" class="viewport">
-              <div class="accordion" id="accordionExample" *cdkVirtualFor="let questions of answers | async">
-                <div class="card-body">{{ questions.answer }}</div>
-                <div class="card-body">{{ questions.id }}</div>
-                <p-rating [cancel]="false" [(ngModel)]="questions.position" [disabled]="true"></p-rating>
+              <div class="accordion" id="accordionExample" *cdkVirtualFor="let answer of answers | async">
+                <div>{{answer | json}}</div>
+                <div class="card-body">{{ answer.answer }}</div>
+                <p-rating [cancel]="false" [(ngModel)]="answer.position" [disabled]="true"></p-rating>
+                <app-edit-answer [answer]="answer" [questionId]="question?.id"></app-edit-answer>
                 <hr>
                 <!-- <div class="accordion-item">
                   <h2 class="accordion-header" id="headingOne">
